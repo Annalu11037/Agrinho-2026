@@ -1,0 +1,183 @@
+/* ========================================
+   Estilos Customizados - Site Consumo Consciente
+   ======================================== */
+
+:root {
+  --primary-green: #166534;
+  --secondary-green: #4ade80;
+  --accent: #15803d;
+  --dark: #052e16;
+  --light: #f0fdf4;
+}
+
+body {
+  font-family: 'Inter', system_ui, sans-serif;
+}
+
+/* Navbar */
+nav {
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #166534;
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #166534;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover:after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero-bg {
+  background: linear-gradient(135deg, #166534 0%, #4ade80 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill-rule=%22evenodd%22%3E%3Cpath fill=%22%23ffffff%22 fill-opacity=%220.05%22 d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-10V8h-2v16h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 6v-4H4v4H0v2h4v4h2V8h4V6H6z%22/%3E%3C/g%3E%3C/svg%3E');
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Topic Cards */
+.topic-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #e5e7eb;
+}
+
+.topic-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border-color: #4ade80;
+}
+
+.topic-card .icon-wrapper {
+  transition: transform 0.3s ease;
+}
+
+.topic-card:hover .icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Section Styling */
+section {
+  scroll-margin-top: 80px;
+}
+
+.content-section h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.content-section h2:after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, #166534, #4ade80);
+  border-radius: 3px;
+}
+
+/* 5 Rs Cards */
+.r-card {
+  transition: all 0.3s ease;
+  border-left: 5px solid #166534;
+}
+
+.r-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+/* Component Cards for Pegada */
+.component-card {
+  transition: all 0.2s ease;
+}
+
+.component-card:hover {
+  background-color: #f0fdf4;
+  transform: translateY(-2px);
+}
+
+/* Calculator */
+.calculator-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Tips Box */
+.tip-box {
+  background: linear-gradient(90deg, #f0fdf4, #dcfce7);
+  border-left: 5px solid #166534;
+}
+
+/* Footer */
+footer {
+  background: #052e16;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-bg h1 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Search highlight */
+.highlight {
+  background-color: #fef08c;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Modal */
+.modal {
+  animation: fadeInUp 0.2s ease;
+}

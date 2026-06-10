@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site educativo sobre Consumo Consciente, Pegada Ecológica, Economia Circular, Greenwashing e os principais temas da sustentabilidade ambiental.">
+    <meta name="keywords" content="sustentabilidade, pegada ecológica, economia circular, consumo consciente, greenwashing, 5 rs, obsolescência programada">
+    <title>Consumo Consciente • Equilíbrio com o Planeta</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="footprint.png">
+</head>
+<body class="bg-white text-gray-800 antialiased">
+    
+    <!-- NAVBAR -->
+    <nav class="bg-white/95 backdrop-blur-lg border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 bg-emerald-600 rounded-2xl flex items-center justify-center overflow-hidden">
+                        <img src="footprint.png" alt="Pegada Ecológica" class="w-9 h-9 object-contain">
+                    </div>
+                    <div>
+                        <span class="font-bold text-2xl tracking-tight text-emerald-800">Consumo</span>
+                        <span class="font-bold text-2xl tracking-tight text-emerald-600">Consciente</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-9 text-sm font-medium">
+                    <a href="#inicio" class="nav-link text-gray-700 hover:text-emerald-700">Início</a>
+                    <a href="#topicos" class="nav-link text-gray-700 hover:text-emerald-700">Tópicos</a>
+                    <a href="#calculadora" class="nav-link text-gray-700 hover:text-emerald-700">Calculadora</a>
+                    <a href="#sobre" class="nav-link text-gray-700 hover:text-emerald-700">Sobre</a>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="hidden md:block w-72">
+                    <div class="relative">
+                        <input 
+                            id="search-input" 
+                            type="text" 
+                            placeholder="Buscar tópicos (ex: reciclar, pegada...)" 
+                            class="w-full bg-gray-100 border border-gray-200 focus:border-emerald-300 focus:ring-1 focus:ring-emerald-200 text-sm placeholder:text-gray-400 rounded-2xl py-2.5 pl-11 pr-4 outline-none transition-all">
+                        <svg class="w-4 h-4 absolute left-4 top-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 01-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-emerald-700 transition-colors" aria-label="Abrir menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t bg-white px-6 py-4">
+            <div class="flex flex-col gap-4 text-sm font-medium">
+                <a href="#inicio" class="py-1 text-gray-700">Início</a>
+                <a href="#topicos" class="py-1 text-gray-700">Tópicos</a>
+                <a href="#calculadora" class="py-1 text-gray-700">Calculadora de Pegada</a>
+                <a href="#sobre" class="py-1 text-gray-700">Sobre o projeto</a>
+                
+                <!-- Mobile Search -->
+                <div class="pt-2">
+                    <input id="search-input-mobile" type="text" placeholder="Buscar tópicos..." 
+                           class="w-full bg-gray-100 border border-gray-200 rounded-2xl py-2.5 px-4 text-sm outline-none">
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- HERO / INÍCIO -->
+    <header id="inicio" class="hero-bg text-white pt-16 pb-20 md:pt-20 md:pb-24">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-4 py-1.5 rounded-3xl mb-6 text-sm font-medium tracking-wider">
+                <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                EDUCAÇÃO AMBIENTAL • 2026
+            </div>
+            
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-none mb-6">
+                Consumo Consciente.<br>
+                <span class="text-emerald-200">Equilíbrio com o Planeta.</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-xl md:text-2xl text-emerald-100 mb-10 leading-tight">
+                Entenda como suas escolhas diárias impactam o meio ambiente e descubra 
+                caminhos práticos para um futuro mais sustentável.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#topicos" 
+                   class="group inline-flex items-center justify-center gap-3 bg-white text-emerald-800 hover:bg-emerald-50 font-semibold px-9 py-4 rounded-3xl text-lg transition-all active:scale-[0.985]">
+                    Explorar os tópicos
+                    <svg class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+                
+                <a href="#calculadora" 
+                   class="inline-flex items-center justify-center gap-3 border-2 border-white/70 hover:bg-white/10 font-medium px-8 py-4 rounded-3xl text-lg transition-all">
+                    Testar minha pegada
+                </a>
+            </div>
+            
+            <div class="mt-14 flex justify-center">
+                <div class="flex items-center gap-8 text-sm text-emerald-200">
+                    <div class="flex -space-x-2">
+                        <div class="w-7 h-7 bg-white/30 rounded-full border border-white/40"></div>
+                        <div class="w-7 h-7 bg-white/30 rounded-full border border-white/40"></div>
+                        <div class="w-7 h-7 bg-white/30 rounded-full border border-white/40"></div>
+                    </div>
+                    <span class="font-medium">+ 50 mil pessoas já transformaram seus hábitos</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- INTRO / POR QUE IMPORTA -->
+    <section class="max-w-5xl mx-auto px-6 py-16 border-b">
+        <div class="grid md:grid-cols-12 gap-x-12 gap-y-8 items-center">
+            <div class="md:col-span-7">
+                <div class="uppercase tracking-[3px] text-emerald-600 text-xs font-bold mb-3">O DESAFIO DO SÉCULO</div>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight leading-none text-gray-900">Nossas escolhas moldam o futuro do planeta.</h2>
+            </div>
+            <div class="md:col-span-5 text-lg text-gray-600 leading-relaxed">
+                O consumo consciente não é apenas uma tendência — é uma necessidade urgente. 
+                Cada decisão que tomamos, desde o que comemos até o que compramos, influencia 
+                diretamente o equilíbrio entre produção e meio ambiente.
+            </div>
+        </div>
+    </section>
+    
+    <!-- TÓPICOS EM DESTAQUE -->
+    <section id="topicos" class="max-w-7xl mx-auto px-6 py-16">
+        <div class="flex items-end justify-between mb-10">
+            <div>
+                <div class="text-emerald-600 font-semibold tracking-widest text-sm">CONHECIMENTO É PODER</div>
+                <h2 class="text-4xl font-bold tracking-tight">Explore os principais temas</h2>
+            </div>
+            <a href="#calculadora" class="hidden md:inline-flex items-center text-sm font-medium text-emerald-700 hover:text-emerald-800 group">
+                Fazer o teste da pegada 
+                <span class="group-hover:translate-x-1 transition inline-block ml-1">→</span>
+            </a>
+        </div>
+        
+        <!-- Grid de Cards -->
+        <div id="topics-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            
+            <!-- Card 1: Pegada Ecológica -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="pegada" data-keywords="pegada ecológica consumo recursos terra cultivável pastagens florestas pesca carbono">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Pegada Ecológica</h3>
+                <p class="text-gray-600 flex-1">Metodologia que mede o impacto do nosso consumo na capacidade de regeneração da Terra.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+            <!-- Card 2: Economia Circular -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="economia-circular" data-keywords="economia circular desperdício reutilização reciclagem reparo">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.058 11H1M12 3v2m0 16v2m9-9H15m-6 0a8.002 8.002 0 01-3.5-6.364"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Economia Circular</h3>
+                <p class="text-gray-600 flex-1">Modelo que elimina o desperdício mantendo produtos e materiais em circulação pelo maior tempo possível.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+            <!-- Card 3: Greenwashing -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="greenwashing" data-keywords="greenwashing marketing enganoso falso sustentável selos">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Greenwashing</h3>
+                <p class="text-gray-600 flex-1">Estratégia de marketing enganosa que cria uma falsa imagem de responsabilidade ambiental.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+            <!-- Card 4: 5 Rs -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="cinco-rs" data-keywords="5 rs repensar recusar reduzir reutilizar reciclar">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.595-1.858L5 7m5 4v6m4-6v6m1-10V9a1 1 0 00-1-1h-4a1 1 0 00-1 1v2"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Os 5 Rs da Sustentabilidade</h3>
+                <p class="text-gray-600 flex-1">Repensar, Recusar, Reduzir, Reutilizar e Reciclar — um guia prático para reduzir resíduos.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+            <!-- Card 5: Obsolescência Programada -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="obsolescencia" data-keywords="obsolescência programada vida útil lixo eletrônico">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 8v4l3 3m6-3a9 9 0 01-9 9 9 9 0 01-9-9 9 9 0 019-9 9 9 0 019 9z"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Obsolescência Programada</h3>
+                <p class="text-gray-600 flex-1">Redução proposital da vida útil dos produtos para estimular o consumo contínuo.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+            <!-- Card 6: Fast Fashion -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="fast-fashion" data-keywords="fast fashion indústria tecnológica ia algoritmos">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 01-2 2v10m-6 0a2 2 0 01-2 2v-2"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Fast Fashion &amp; Indústria Tecnológica</h3>
+                <p class="text-gray-600 flex-1">Como algoritmos e automação aceleram a produção de moda e seus impactos socioambientais.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+            <!-- Card 7: Logística Reversa -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="logistica-reversa" data-keywords="logística reversa pós-consumo pnrs responsabilidade compartilhada">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Logística Reversa</h3>
+                <p class="text-gray-600 flex-1">O processo de devolver produtos e resíduos às empresas para reciclagem ou descarte correto.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+            <!-- Card 8: Mineração Urbana -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="mineracao-urbana" data-keywords="mineração urbana lixo eletrônico baterias economia baixo carbono">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2 2 2 0 00-2 2v2"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Mineração Urbana</h3>
+                <p class="text-gray-600 flex-1">Recuperação de minerais valiosos de resíduos eletrônicos para impulsionar a economia de baixo carbono.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+            <!-- Card 9: Decrescimento Econômico -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="decrescimento" data-keywords="decrescimento econômico bem-estar PIB limites planetários">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Decrescimento Econômico</h3>
+                <p class="text-gray-600 flex-1">Movimento que propõe redução planejada da produção e consumo para proteger o planeta.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+            <!-- Card 10: Ecodesign -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="ecodesign" data-keywords="ecodesign design sustentável ciclo de vida materiais biodegradáveis">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Ecodesign</h3>
+                <p class="text-gray-600 flex-1">Projetar produtos e serviços integrando critérios ambientais em todo o ciclo de vida.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+            <!-- Card 11: Greentax -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="greentax" data-keywords="greentax impostos ambientais poluidor pagador iptu verde ipva">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Greentax</h3>
+                <p class="text-gray-600 flex-1">Uso de impostos e taxas para incentivar comportamentos sustentáveis e penalizar a poluição.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+            <!-- Card 12: Bioeconomia -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="bioeconomia" data-keywords="bioeconomia biotecnologia biomassa inovação inclusão social">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Bioeconomia</h3>
+                <p class="text-gray-600 flex-1">Modelo que usa recursos biológicos e biotecnologia para produzir de forma sustentável e inovadora.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+            <!-- Card 13: Sustentabilidade Digital -->
+            <div class="topic-card bg-white rounded-3xl p-6 flex flex-col h-full shadow-sm" data-target="sustentabilidade-digital" data-keywords="sustentabilidade digital data centers lixo eletrônico pegada carbono sites">
+                <div class="icon-wrapper w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-5">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="font-bold text-2xl tracking-tight mb-3">Sustentabilidade Digital</h3>
+                <p class="text-gray-600 flex-1">Uso responsável da tecnologia para minimizar impactos ambientais e promover inclusão social.</p>
+                <button class="explore-btn mt-6 w-full py-3 text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition text-white rounded-2xl">Explorar conteúdo</button>
+            </div>
+            
+        </div>
+        
+        <p class="text-center text-sm text-gray-500 mt-8">Clique em qualquer card para ir diretamente ao conteúdo completo</p>
+    </section>
+    
+    <!-- PEGADA ECOLÓGICA - DETALHADO -->
+    <section id="pegada" class="content-section max-w-5xl mx-auto px-6 py-16 border-t">
+        <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex-shrink-0 flex items-center justify-center">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path></svg>
+            </div>
+            <div>
+                <h2 class="text-4xl font-bold tracking-tight">Pegada Ecológica</h2>
+                <p class="text-emerald-600 font-medium">A medida do nosso impacto no planeta</p>
+            </div>
+        </div>
+        
+        <div class="prose prose-lg max-w-none text-gray-700">
+            <p class="lead">A <strong>Pegada Ecológica</strong> é uma metodologia desenvolvida para mensurar os impactos do consumo dos seres humanos sobre o planeta Terra, baseando-se na capacidade de regeneração dos recursos naturais. É calculada pela soma da área utilizada para a produção de bens e serviços com a área demandada para a absorção de gases emitidos durante o processo produtivo, entre os quais está o CO₂.</p>
+            
+            <div class="bg-emerald-50 border border-emerald-100 rounded-3xl p-8 my-8">
+                <h4 class="font-semibold text-emerald-800 mb-3">Por que isso importa?</h4>
+                <p class="text-emerald-700">Diminuir a pegada ecológica individual e coletiva por meio de novas práticas e da adoção de novos hábitos de consumo é muito importante para a sustentabilidade ambiental.</p>
+            </div>
+            
+            <h3 class="font-semibold text-2xl mt-10 mb-4">Objetivos da Pegada Ecológica</h3>
+            <p>A pegada ecológica mede a demanda humana por recursos naturais renováveis em comparação com a capacidade do planeta de regenerá-los. Seu principal objetivo é contabilizar o impacto ambiental do consumo humano — em áreas como energia, transporte e alimentação —, para conscientizar a sociedade sobre os limites da Terra. Através desta métrica, governos e empresas podem formular políticas públicas eficientes e adotar práticas sustentáveis, buscando o equilíbrio essencial entre o desenvolvimento socioeconômico e a preservação dos ecossistemas.</p>
+            
+            <h3 class="font-semibold text-2xl mt-10 mb-6">Os 6 Componentes da Pegada Ecológica</h3>
+            
+            <div class="grid md:grid-cols-2 gap-5">
+                <div class="component-card bg-white border border-gray-100 p-6 rounded-3xl">
+                    <div class="font-bold text-emerald-700 mb-1">1. Terra Cultivável (Agricultura)</div>
+                    <p class="text-sm text-gray-600">Área necessária para produzir alimentos, ração animal, fibras (como algodão) e biocombustíveis.</p>
+                    <p class="text-xs mt-3 text-emerald-600 font-medium">Impacto: Dietas ricas em carne e o desperdício de alimentos aumentam significativamente essa categoria.</p>
+                </div>
+                
+                <div class="component-card bg-white border border-gray-100 p-6 rounded-3xl">
+                    <div class="font-bold text-emerald-700 mb-1">2. Pastagens</div>
+                    <p class="text-sm text-gray-600">Território utilizado para a criação de gado e outros animais destinados à produção de carne, leite, lã e couro.</p>
+                </div>
+                
+                <div class="component-card bg-white border border-gray-100 p-6 rounded-3xl">
+                    <div class="font-bold text-emerald-700 mb-1">3. Florestas</div>
+                    <p class="text-sm text-gray-600">Área de mata necessária para fornecer madeira, papel e celulose. Também contabiliza a capacidade da floresta de absorver parte das emissões de carbono.</p>
+                </div>
+                
+                <div class="component-card bg-white border border-gray-100 p-6 rounded-3xl">
+                    <div class="font-bold text-emerald-700 mb-1">4. Áreas de Pesca</div>
+                    <p class="text-sm text-gray-600">Espaço marítimo e de águas continentais estimado para a extração de pescados e frutos do mar destinados ao consumo.</p>
+                </div>
+                
+                <div class="component-card bg-white border border-gray-100 p-6 rounded-3xl">
+                    <div class="font-bold text-emerald-700 mb-1">5. Área Construída</div>
+                    <p class="text-sm text-gray-600">Porção de terra biologicamente produtiva ocupada por infraestruturas humanas: cidades, moradias, estradas, indústrias e hidrelétricas.</p>
+                </div>
+                
+                <div class="component-card bg-white border border-gray-100 p-6 rounded-3xl">
+                    <div class="font-bold text-emerald-700 mb-1">6. Demanda de Carbono (Pegada de Carbono)</div>
+                    <p class="text-sm text-gray-600">A maior parte da pegada ecológica global. Representa a área de florestas necessária para absorver todo o CO₂ emitido pela queima de combustíveis fósseis (carros, aviões e energia).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ECONOMIA CIRCULAR -->
+    <section id="economia-circular" class="content-section max-w-5xl mx-auto px-6 py-16 border-t bg-gray-50">
+        <div class="max-w-4xl">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.058 11H1M12 3v2m0 16v2m9-9H15m-6 0a8.002 8.002 0 01-3.5-6.364"></path></svg>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tight">Economia Circular</h2>
+            </div>
+            
+            <p class="text-xl text-gray-700">A Economia Circular é um modelo de produção e consumo baseado na <strong>eliminação do desperdício</strong>. Diferente do sistema tradicional (extrair, produzir, usar e descartar), ela busca manter produtos, materiais e recursos em circulação pelo maior tempo possível.</p>
+            
+            <div class="mt-8 grid md:grid-cols-3 gap-5">
+                <div class="bg-white p-6 rounded-3xl border">
+                    <div class="text-emerald-600 font-bold mb-2">1. Eliminar</div>
+                    <p class="text-sm">Resíduos e poluição desde o design do produto.</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border">
+                    <div class="text-emerald-600 font-bold mb-2">2. Circular</div>
+                    <p class="text-sm">Materiais através de reutilização, reparo e reciclagem.</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border">
+                    <div class="text-emerald-600 font-bold mb-2">3. Regenerar</div>
+                    <p class="text-sm">Os sistemas naturais de forma contínua.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- GREENWASHING -->
+    <section id="greenwashing" class="content-section max-w-5xl mx-auto px-6 py-16 border-t">
+        <div class="max-w-4xl">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tight">Greenwashing</h2>
+            </div>
+            
+            <p class="text-lg">Greenwashing é uma estratégia de marketing enganosa utilizada por empresas, indústrias e até governos para criar uma <strong>falsa imagem de responsabilidade ecológica</strong>. O termo une "green" (verde) e "whitewashing" (branqueamento).</p>
+            
+            <div class="mt-8 bg-amber-50 border-l-4 border-amber-400 p-7 rounded-r-3xl">
+                <p class="font-medium text-amber-800">Como identificar?</p>
+                <ul class="mt-4 space-y-2 text-amber-700 text-sm">
+                    <li class="flex gap-2">• Termos vagos como "100% natural", "ecológico" ou "amigo da natureza" sem comprovação</li>
+                    <li class="flex gap-2">• Uso excessivo de cores verdes e imagens de natureza em produtos que não são sustentáveis</li>
+                    <li class="flex gap-2">• Destacar uma única ação positiva enquanto esconde impactos maiores ("pecado do custo oculto")</li>
+                </ul>
+            </div>
+            
+            <p class="mt-8 text-gray-700">No Brasil e no mundo, órgãos de regulamentação publicitária e leis de defesa do consumidor fiscalizam e punem o greenwashing. <strong>Dica:</strong> Busque dados concretos, relatórios de sustentabilidade auditados e selos ecológicos confiáveis (como FSC para manejo florestal ou IBD para produtos orgânicos).</p>
+        </div>
+    </section>
+    
+    <!-- 5 RS -->
+    <section id="cinco-rs" class="content-section max-w-6xl mx-auto px-6 py-16 border-t bg-gray-50">
+        <div class="text-center mb-12">
+            <div class="inline-block px-5 py-1.5 bg-emerald-100 text-emerald-700 text-xs font-bold tracking-[2px] rounded-3xl mb-4">POLÍTICA DE RESÍDUOS</div>
+            <h2 class="text-4xl font-bold tracking-tight">Os 5 Rs da Sustentabilidade</h2>
+            <p class="mt-3 text-lg max-w-md mx-auto text-gray-600">Uma política que visa reduzir a geração de resíduos e transformar nosso comportamento diante do consumo.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-5 gap-5">
+            <div class="r-card bg-white p-7 rounded-3xl">
+                <div class="text-6xl font-black text-emerald-200 tracking-tighter mb-1">01</div>
+                <div class="font-bold text-2xl text-emerald-800 mb-4">Repensar</div>
+                <p class="text-sm text-gray-600 leading-relaxed">Repensar nossas práticas em relação ao meio ambiente. O início de toda mudança: nosso consumo e como fazemos o descarte dos resíduos.</p>
+            </div>
+            
+            <div class="r-card bg-white p-7 rounded-3xl">
+                <div class="text-6xl font-black text-emerald-200 tracking-tighter mb-1">02</div>
+                <div class="font-bold text-2xl text-emerald-800 mb-4">Recusar</div>
+                <p class="text-sm text-gray-600 leading-relaxed">Chama atenção para o consumismo desnecessário. Devemos ser críticos e adquirir apenas aquilo que realmente necessitamos, preferindo empresas preocupadas com o meio ambiente.</p>
+            </div>
+            
+            <div class="r-card bg-white p-7 rounded-3xl">
+                <div class="text-6xl font-black text-emerald-200 tracking-tighter mb-1">03</div>
+                <div class="font-bold text-2xl text-emerald-800 mb-4">Reduzir</div>
+                <p class="text-sm text-gray-600 leading-relaxed">Questionar sempre: "Eu preciso realmente disso?". Reduzir significa também poupar recursos naturais, como a água potável que é muitas vezes utilizada de forma indiscriminada.</p>
+            </div>
+            
+            <div class="r-card bg-white p-7 rounded-3xl">
+                <div class="text-6xl font-black text-emerald-200 tracking-tighter mb-1">04</div>
+                <div class="font-bold text-2xl text-emerald-800 mb-4">Reutilizar</div>
+                <p class="text-sm text-gray-600 leading-relaxed">Utilizar novamente objetos que seriam descartados. Algumas embalagens podem ser reaproveitadas ou utilizadas para outras finalidades criativas.</p>
+            </div>
+            
+            <div class="r-card bg-white p-7 rounded-3xl">
+                <div class="text-6xl font-black text-emerald-200 tracking-tighter mb-1">05</div>
+                <div class="font-bold text-2xl text-emerald-800 mb-4">Reciclar</div>
+                <p class="text-sm text-gray-600 leading-relaxed">Reaproveitar um produto transformando-o em matéria-prima para outro objeto. Reduz a quantidade de lixo e o uso de recursos naturais. Materiais: papel, plástico e alumínio.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- OBSOLESCÊNCIA PROGRAMADA -->
+    <section id="obsolescencia" class="content-section max-w-5xl mx-auto px-6 py-16 border-t">
+        <div class="max-w-4xl">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 01-9 9 9 9 0 01-9-9 9 9 0 019-9 9 9 0 019 9z"></path></svg>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tight">Obsolescência Programada</h2>
+            </div>
+            
+            <p class="text-xl">A obsolescência programada é a <strong>redução proposital da vida útil de um produto</strong> para forçar o consumidor a comprar um novo modelo.</p>
+            
+            <div class="mt-10 grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-semibold mb-3 text-emerald-700">Tipos principais</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><strong>Funcional:</strong> Peças que quebram intencionalmente após certo tempo.</li>
+                        <li><strong>Por software:</strong> Fim de atualizações que tornam o aparelho obsoleto.</li>
+                        <li><strong>Psicológica:</strong> Mudança constante de design e moda que incentiva a troca.</li>
+                    </ul>
+                </div>
+                <div class="bg-red-50 border border-red-100 rounded-3xl p-7 text-sm">
+                    <div class="font-bold text-red-700 mb-3">Impactos</div>
+                    <div class="space-y-3 text-red-600">
+                        <div><span class="font-semibold">Ambiental:</span> Gera toneladas de lixo eletrônico descartado incorretamente.</div>
+                        <div><span class="font-semibold">Financeiro:</span> Prejudica o bolso do consumidor com gastos recorrentes e forçados.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAST FASHION -->
+    <section id="fast-fashion" class="content-section max-w-5xl mx-auto px-6 py-16 border-t bg-gray-50">
+        <div class="max-w-4xl">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 01-2 2v10m-6 0a2 2 0 01-2 2v-2"></path></svg>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tight">Fast Fashion e Indústria Tecnológica</h2>
+            </div>
+            
+            <p class="text-lg">A união entre o fast fashion e a indústria tecnológica transformou a moda em um mercado puramente digital e orientado por dados. Hoje, grandes marcas funcionam quase como empresas de software, utilizando algoritmos de inteligência artificial para monitorar redes sociais, identificar microtendências em tempo real e desenhar novas peças em poucas horas através de programas de modelagem 3D.</p>
+            
+            <div class="mt-8 text-sm bg-white p-8 rounded-3xl border">
+                <div class="grid md:grid-cols-2 gap-x-10 gap-y-6 text-gray-600">
+                    <div>
+                        <div class="font-semibold text-emerald-700 mb-1">Produção automatizada</div>
+                        <p>Corte a laser, impressão direta em tecido e sistemas integrados de Big Data que gerenciam a logística global.</p>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-emerald-700 mb-1">Experiência do consumidor</div>
+                        <p>Aplicativos de e-commerce e ferramentas de realidade aumentada criam experiências altamente personalizadas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- LOGÍSTICA REVERSA -->
+    <section id="logistica-reversa" class="content-section max-w-5xl mx-auto px-6 py-16 border-t">
+        <div class="max-w-4xl">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tight">Logística Reversa</h2>
+            </div>
+            
+            <p class="text-lg">A logística reversa é o processo de coletar e restituir produtos, embalagens ou resíduos da ponta final (consumidores) de volta às empresas. Ela garante o descarte ecológico ou o reaproveitamento de materiais (reciclagem e reuso).</p>
+            
+            <div class="mt-8 grid md:grid-cols-2 gap-6">
+                <div class="border-l-4 border-emerald-500 pl-6">
+                    <div class="uppercase text-xs tracking-widest font-bold text-emerald-600">Pós-venda</div>
+                    <p class="mt-2 text-sm">Envolve o retorno de produtos por desistência, defeito ou troca. O item frequentemente retorna ao estoque para revenda.</p>
+                </div>
+                <div class="border-l-4 border-emerald-500 pl-6">
+                    <div class="uppercase text-xs tracking-widest font-bold text-emerald-600">Pós-consumo</div>
+                    <p class="mt-2 text-sm">Foca no descarte ao fim da vida útil do produto. Materiais como pilhas, baterias, lâmpadas, pneus e eletrônicos retornam aos fabricantes ou pontos de coleta para reciclagem.</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-sm bg-emerald-900 text-emerald-100 p-7 rounded-3xl">
+                No Brasil, essa prática é amparada pela <strong>Política Nacional de Resíduos Sólidos (PNRS)</strong>, que estabelece a responsabilidade compartilhada entre fabricantes, comerciantes, importadores, distribuidores e o consumidor.
+            </div>
+        </div>
+    </section>
+    
+    <!-- MINERAÇÃO URBANA -->
+    <section id="mineracao-urbana" class="content-section max-w-5xl mx-auto px-6 py-16 border-t bg-gray-50">
+        <div class="max-w-4xl">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2 2 2 0 00-2 2v2"></path></svg>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tight">Mineração Urbana e Economia de Baixo Carbono</h2>
+            </div>
+            
+            <p>A mineração urbana recupera minerais valiosos de resíduos eletroeletrônicos e baterias, sendo essencial para consolidar a economia de baixo carbono. Essa prática substitui a extração mineral tradicional, gerando grandes benefícios ambientais e econômicos.</p>
+            
+            <div class="mt-8 grid md:grid-cols-3 gap-5 text-sm">
+                <div class="bg-white p-6 rounded-3xl"><span class="block font-bold text-emerald-700 mb-2">Eficiência Energética</span> Reciclar metais consome muito menos energia e gera menos emissões de CO₂ do que minerar matéria-prima virgem.</div>
+                <div class="bg-white p-6 rounded-3xl"><span class="block font-bold text-emerald-700 mb-2">Transição Energética</span> Abastece a indústria com lítio, cobalto e cobre — materiais cruciais para veículos elétricos e energia limpa.</div>
+                <div class="bg-white p-6 rounded-3xl"><span class="block font-bold text-emerald-700 mb-2">Logística Reversa</span> Estrutura a coleta obrigatória de eletrônicos, transformando lixo urbano em recurso financeiro.</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- DECRESCIMENTO ECONÔMICO -->
+    <section id="decrescimento" class="content-section max-w-5xl mx-auto px-6 py-16 border-t">
+        <div class="max-w-4xl">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tight">Decrescimento Econômico</h2>
+            </div>
+            
+            <p class="text-xl">É um movimento que defende a <strong>redução planejada da produção e do consumo</strong> para proteger o planeta. Diferente de uma recessão comum (que é uma crise caótica), ele propõe uma transição organizada e democrática.</p>
+            
+            <div class="mt-8 p-8 bg-white border rounded-3xl">
+                <p class="font-medium">O foco principal é substituir a busca pelo crescimento infinito do PIB por indicadores que priorizem o <strong>bem-estar humano</strong>, a <strong>equidade social</strong> e a <strong>preservação ecológica</strong> dentro dos limites da Terra.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ECODESIGN -->
+    <section id="ecodesign" class="content-section max-w-5xl mx-auto px-6 py-16 border-t bg-gray-50">
+        <div class="max-w-4xl">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tight">Ecodesign</h2>
+            </div>
+            
+            <p class="text-xl">O ecodesign (ou design sustentável) é a prática de projetar produtos, serviços e espaços integrando critérios ambientais ao longo de todo o ciclo de vida. O objetivo é reduzir o uso de recursos não renováveis, minimizar o impacto ecológico e promover a economia circular.</p>
+            
+            <div class="mt-10 grid md:grid-cols-2 gap-x-8 gap-y-8 text-sm">
+                <div><span class="font-bold block mb-1 text-emerald-700">Objetivo principal</span> Reduzir desperdício e integrar critérios ecológicos na criação.</div>
+                <div><span class="font-bold block mb-1 text-emerald-700">Escolha de materiais</span> Prioriza recursos reciclados, biodegradáveis e de fontes renováveis.</div>
+                <div><span class="font-bold block mb-1 text-emerald-700">Ciclo de vida</span> Foca na durabilidade, reparo fácil e reciclagem pós-uso.</div>
+                <div><span class="font-bold block mb-1 text-emerald-700">Eficiência energética</span> Reduz o consumo de água e energia na produção.</div>
+            </div>
+            
+            <div class="mt-6 text-xs uppercase tracking-widest text-emerald-600 font-bold">Aplicações: Arquitetura verde • Embalagens biodegradáveis • Moda sustentável</div>
+        </div>
+    </section>
+    
+    <!-- GREENTAX -->
+    <section id="greentax" class="content-section max-w-5xl mx-auto px-6 py-16 border-t">
+        <div class="max-w-4xl">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2"></path></svg>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tight">Greentax</h2>
+            </div>
+            
+            <p class="text-xl">Greentax é o uso de impostos e taxas governamentais para induzir comportamentos sustentáveis e penalizar atividades poluidoras. Em vez de apenas arrecadar fundos, o objetivo é <strong>extrafiscal</strong>: usar o sistema financeiro para desestimular danos ambientais e incentivar a transição ecológica.</p>
+            
+            <div class="mt-8">
+                <div class="text-xs uppercase font-bold tracking-[1.5px] text-emerald-600 mb-4">EXEMPLOS DE APLICAÇÃO</div>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="flex gap-4 bg-white p-5 rounded-2xl border"><span class="font-mono text-emerald-600 font-bold w-5">01</span> <span>Tributação mais pesada sobre combustíveis fósseis e emissão de carbono; menores encargos para energia limpa (hidrogênio verde).</span></div>
+                    <div class="flex gap-4 bg-white p-5 rounded-2xl border"><span class="font-mono text-emerald-600 font-bold w-5">02</span> <span>Desconto no IPVA para carros elétricos ou híbridos.</span></div>
+                    <div class="flex gap-4 bg-white p-5 rounded-2xl border"><span class="font-mono text-emerald-600 font-bold w-5">03</span> <span>Redução no IPTU Verde para propriedades com captação de água da chuva ou painéis solares.</span></div>
+                    <div class="flex gap-4 bg-white p-5 rounded-2xl border"><span class="font-mono text-emerald-600 font-bold w-5">04</span> <span>Taxas ambientais cobradas de turistas em áreas de preservação (ex: Maldivas).</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- BIOECONOMIA -->
+    <section id="bioeconomia" class="content-section max-w-5xl mx-auto px-6 py-16 border-t bg-gray-50">
+        <div class="max-w-4xl">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path></svg>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tight">Bioeconomia</h2>
+            </div>
+            
+            <p class="text-xl">A bioeconomia é um modelo de desenvolvimento econômico que utiliza recursos biológicos e biotecnologia para produzir alimentos, energia, bens e serviços de forma sustentável. O objetivo é substituir matérias-primas não renováveis, como combustíveis fósseis, promovendo a conservação ambiental e a inovação.</p>
+            
+            <div class="mt-8 grid md:grid-cols-3 gap-5">
+                <div class="p-6 bg-white rounded-3xl text-sm"><span class="font-bold text-emerald-700">Sustentabilidade</span><br>Uso consciente dos recursos naturais, garantindo a preservação dos ecossistemas.</div>
+                <div class="p-6 bg-white rounded-3xl text-sm"><span class="font-bold text-emerald-700">Biotecnologia &amp; Inovação</span><br>Transformação de biomassa em novos produtos industriais, químicos ou farmacêuticos.</div>
+                <div class="p-6 bg-white rounded-3xl text-sm"><span class="font-bold text-emerald-700">Inclusão Social</span><br>Valorização do conhecimento tradicional e geração de renda para populações locais (sociobioeconomia).</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SUSTENTABILIDADE DIGITAL -->
+    <section id="sustentabilidade-digital" class="content-section max-w-5xl mx-auto px-6 py-16 border-t">
+        <div class="max-w-4xl">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex-shrink-0 flex items-center justify-center">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <h2 class="text-4xl font-bold tracking-tight">Sustentabilidade Digital</h2>
+            </div>
+            
+            <p class="text-xl">A sustentabilidade digital é o uso consciente e o desenvolvimento responsável da tecnologia para minimizar o impacto ambiental, gerenciar o lixo eletrônico e promover a inclusão social.</p>
+            
+            <div class="mt-8 bg-white border p-8 rounded-3xl">
+                <div class="text-xs font-bold tracking-widest text-red-600 mb-4">O MUNDO DIGITAL TAMBÉM POLUI (DE FORMA SILENCIOSA)</div>
+                
+                <div class="grid md:grid-cols-3 gap-6 text-sm">
+                    <div>
+                        <div class="font-semibold mb-1">Consumo de energia</div>
+                        <p class="text-gray-600">Data centers gigantescos operam sem interrupção e exigem resfriamento constante.</p>
+                    </div>
+                    <div>
+                        <div class="font-semibold mb-1">Lixo eletrônico</div>
+                        <p class="text-gray-600">Dispositivos obsoletos são frequentemente descartados incorretamente no meio ambiente.</p>
+                    </div>
+                    <div>
+                        <div class="font-semibold mb-1">Pegada de carbono de sites</div>
+                        <p class="text-gray-600">Páginas pesadas e códigos mal otimizados demandam mais processamento e eletricidade.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-6 border-t">
+                    <div class="font-bold text-emerald-700 mb-3">O que você pode fazer agora:</div>
+                    <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-emerald-700">
+                        <div>→ Usar energia renovável na nuvem</div>
+                        <div>→ Criar sites mais leves</div>
+                        <div>→ Reciclar aparelhos antigos</div>
+                        <div>→ Apagar e-mails velhos</div>
+                        <div>→ Evitar acúmulo de arquivos na nuvem</div>
+                        <div>→ Estender a vida útil de computadores e celulares</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CALCULADORA INTERATIVA -->
+    <section id="calculadora" class="max-w-4xl mx-auto px-6 py-20 border-t bg-emerald-950 text-white rounded-t-[3rem]">
+        <div class="text-center mb-12">
+            <div class="inline px-4 py-1 bg-white/10 text-xs tracking-[2px] font-bold rounded-3xl mb-4">EXPERIMENTE</div>
+            <h2 class="text-4xl font-bold tracking-tight">Teste sua Pegada Ecológica</h2>
+            <p class="mt-3 max-w-md mx-auto text-emerald-300">Responda 5 perguntas rápidas e descubra quantos planetas seriam necessários para sustentar seu estilo de vida.</p>
+        </div>
+        
+        <div class="calculator-card max-w-3xl mx-auto p-9 text-gray-800">
+            <form id="calculator-form">
+                <div class="space-y-8">
+                    
+                    <!-- Pergunta 1 -->
+                    <div>
+                        <label class="block font-semibold mb-3">1. Qual é o seu padrão alimentar predominante?</label>
+                        <select id="diet" class="w-full border border-gray-300 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-emerald-400" required>
+                            <option value="0.9">Vegano / Vegetariano estrito</option>
+                            <option value="1.3">Vegetariano com laticínios e ovos</option>
+                            <option value="1.8" selected>Consumo moderado de carne (2-4 vezes/semana)</option>
+                            <option value="2.6">Alto consumo de carne vermelha (quase todos os dias)</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Pergunta 2 -->
+                    <div>
+                        <label class="block font-semibold mb-3">2. Como você se desloca no dia a dia?</label>
+                        <select id="transport" class="w-full border border-gray-300 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-emerald-400" required>
+                            <option value="0.6">Bicicleta, a pé ou transporte público</option>
+                            <option value="1.4" selected>Carro ocasionalmente + transporte público</option>
+                            <option value="2.1">Carro diariamente (média de 30-50km/dia)</option>
+                            <option value="3.0">Muito uso de carro + viagens frequentes de avião</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Pergunta 3 -->
+                    <div>
+                        <label class="block font-semibold mb-3">3. Qual o nível de eficiência energética da sua casa?</label>
+                        <select id="energy" class="w-full border border-gray-300 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-emerald-400" required>
+                            <option value="0.5">Painéis solares + eletrodomésticos eficientes + LED</option>
+                            <option value="1.1" selected>Uso consciente de energia, mas sem painéis</option>
+                            <option value="1.8">Consumo médio/alto, ar-condicionado frequente</option>
+                            <option value="2.4">Alto consumo sem preocupação com eficiência</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Pergunta 4 -->
+                    <div>
+                        <label class="block font-semibold mb-3">4. Com que frequência você compra roupas, eletrônicos ou produtos novos?</label>
+                        <select id="shopping" class="w-full border border-gray-300 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-emerald-400" required>
+                            <option value="0.6">Raramente — priorizo qualidade e durabilidade</option>
+                            <option value="1.2" selected>Compras ocasionais quando necessário</option>
+                            <option value="2.0">Compras frequentes (fast fashion ou lançamentos)</option>
+                            <option value="2.8">Compras impulsivas e regulares</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Pergunta 5 -->
+                    <div>
+                        <label class="block font-semibold mb-3">5. Como você lida com resíduos e reciclagem?</label>
+                        <select id="waste" class="w-full border border-gray-300 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:border-emerald-400" required>
+                            <option value="0.4">Reciclo tudo possível + evito embalagens + compostagem</option>
+                            <option value="1.0" selected>Reciclo o básico (papel, plástico, vidro)</option>
+                            <option value="1.6">Reciclo pouco ou de forma irregular</option>
+                            <option value="2.3">Quase não reciclo</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" 
+                        class="mt-10 w-full bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 transition font-semibold text-white py-4 text-lg rounded-3xl flex items-center justify-center gap-3">
+                    CALCULAR MINHA PEGADA ECOLÓGICA
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7-7 7"></path></svg>
+                </button>
+            </form>
+            
+            <!-- Resultado -->
+            <div id="calculator-result" class="mt-8"></div>
+        </div>
+        
+        <p class="text-center text-emerald-400 text-xs mt-8 tracking-wider">Este é um teste ilustrativo e educativo. Resultados reais variam conforme muitos fatores.</p>
+    </section>
+    
+    <!-- SOBRE / RODAPÉ -->
+    <section id="sobre" class="max-w-5xl mx-auto px-6 py-16 text-center">
+        <div class="max-w-md mx-auto">
+            <div class="mx-auto w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6">
+                <img src="footprint.png" alt="Ícone Pegada" class="w-10 h-10">
+            </div>
+            
+            <h3 class="font-bold text-2xl tracking-tight">Sobre este projeto</h3>
+            <p class="mt-4 text-gray-600 text-[15px] leading-relaxed">
+                Este site foi criado com base no documento "Consumo consciente e influência no equilíbrio produção-meio no ambiente". 
+                O objetivo é tornar o conhecimento sobre sustentabilidade acessível, bonito e interativo para estudantes, educadores e qualquer pessoa interessada em fazer a diferença.
+            </p>
+            
+            <div class="mt-8 text-xs text-gray-400">
+                Feito com ❤️ para educação ambiental • 2026
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-[#052e16] text-emerald-300 py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center text-xs tracking-widest">
+            CONSUMO CONSCIENTE • EQUILÍBRIO COM O PLANETA<br>
+            <span class="text-emerald-800">Todos os direitos reservados aos autores do material original • Site educativo sem fins lucrativos</span>
+        </div>
+    </footer>
+    
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    
+    <!-- Extra: Sync mobile search with desktop -->
+    <script>
+        // Sync search inputs
+        const desktopSearch = document.getElementById('search-input');
+        const mobileSearch = document.getElementById('search-input-mobile');
+        
+        if (desktopSearch && mobileSearch) {
+            desktopSearch.addEventListener('input', () => {
+                mobileSearch.value = desktopSearch.value;
+                mobileSearch.dispatchEvent(new Event('input'));
+            });
+            
+            mobileSearch.addEventListener('input', () => {
+                desktopSearch.value = mobileSearch.value;
+                desktopSearch.dispatchEvent(new Event('input'));
+            });
+        }
+    </script>
+</body>
+</html>
